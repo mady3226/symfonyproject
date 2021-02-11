@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-1">
+        <div class="jumbotron text-center ">
+            <h1  style="font-weight: bolder;font-size: 40px">Sellermania Algorithme  "*** Pricing ***"  </h1>
+            <p>Ici vous pouvez calculer le meilleur prix pour votre article en fonction de la concurrence</p>
+        </div>
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success text-center">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <div class="row">
+            <div class=" col-md-8">
+                {{ form_start(formulaire_produit) }}
+
+                <div class="row">
+                    <div class="col-md-3">{{ form_row(formulaire_produit.prix_plancher) }}</div>
+                    <div class="col-md-3">{{ form_row(formulaire_produit.produit) }}</div>
+                    <div class="col-md-3">{{ form_row(formulaire_produit.etat) }}</div>
+                    <div class="col-md-3 right">
+                        {{ form_widget(formulaire_produit) }}
+                        <button class="btn btn-success"style="border-radius: 15px; right: 5px"><span style="font-weight: bold">Calculer</span></button>
+                        {{ form_end(formulaire_produit) }}
+                    </div>
+                </div>
+                <table style="width: 600px; height: 10px" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Prix</th>
+                            <th>Nom</th>
+                            <th>Vendeur</th>
+                            <th>Etat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for article in articles %}
+                            <tr style="height: 2%">
+                                <td >{{ article.formatPrice }} €</td>
+                                <td>{{ article.nom.nom }} </td>
+                                <td>{{ article.vendeur.nom }}</td>
+                                <td>{{ article.etat.nom }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <div >
+                    <div class="col-12 text-center">
+                        <div class="card" style="left: 20%; border-radius: 20px;border-color: #AA3333; border-width: 30px">
+                            <div class="text-primary" style="font-weight: bold;font-size: 3rem;">
+                                <h1>
+                                    {% if zone_ready is defined and zone_ready == 'pret' %}
+                                        {{ price }} €
+                                    {% else %}
+                                        **** €
+                                    {% endif %}
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

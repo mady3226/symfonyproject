@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="jumbotron text-center ">
+            <h1 style="font-weight: bolder;font-size: 40px">Aperçu de la concurrence </h1>
+            <p>Ici vous pouvez voir tous les produits et leurs en vendeurs. Vous pouvez aussi ajouter des nouveaux vendeurs avec leurs produits.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4" >
+                {{ form_start(formulaire_produit) }}
+
+                <div class="row col-md-5" >
+                    {{ form_row(formulaire_produit.nom) }}
+                    {{ form_widget(formulaire_produit) }}
+                    <div class="mt-2">
+                        <button class="btn btn-success"style="border-radius: 10px; right: 5px"><span style="font-weight: bold">Ajouter</span></button>
+                        {{ form_end(formulaire_produit) }}
+                    </div>
+                </div>
+
+                {{ form_start(formulaire_filtre) }}
+                <div class="row col-md-5" >
+                    {{ form_widget(formulaire_filtre) }}
+                    <div class="mt-2">
+                        <button class="btn btn-success"style="border-radius: 10px; right: 5px"><span style="font-weight: bold">Actualiser</span></button>
+                        {{ form_end(formulaire_filtre) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table style="width: 600px; height: 5px" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Prix</th>
+                            <th>Nom</th>
+                            <th>Vendeur</th>
+                            <th>Etat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for article in articles %}
+                            <tr>
+                                <td>{{ article.formatPrice }} €</td>
+                                <td>{{ article.nom.nom }} </td>
+                                <td>{{ article.vendeur.nom }}</td>
+                                <td>{{ article.etat.nom }}</td>
+                                <td><a href="{{ path('concurrence.edit',{id: article.id}) }}" class="btn btn-secondary">Modifier</a>
+                                    <form method="post" action="{{ path('concurrence.delete', {id: article.id }) }}" style="display: inline-block" >
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
+                                        <button class="btn btn-danger">Supprimer</button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </div>
+{% endblock %}

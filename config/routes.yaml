@@ -1,0 +1,25 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+home:
+  path: /
+  controller: App\Controller\HomeController::index
+
+vendeur:
+  path: /vendeur
+  controller: App\Controller\VendeurController::vendeur
+
+apercuconcurrence:
+  path: /apercuconcurrence
+  controller: App\Controller\ConcurrenceController::apercuconcurrence
+
+etat:
+  path: /etat
+  controller: App\Controller\EtatController::etat
+
+produit:
+  path: /produit
+  controller: App\Controller\ProduitController::produit
+algorithmecalcul:
+  path: /algorithmecalcul
+  controller: App\Controller\CalculController::index

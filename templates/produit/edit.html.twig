@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+
+        <div class="jumbotron text-center ">
+            <h1>Modification d'un produit : </h1>
+            {{  include('formulaire_modification.html.twig', {form: form, button: 'Modifier'}) }}
+        </div>
+    </div>
+
+{% endblock %}

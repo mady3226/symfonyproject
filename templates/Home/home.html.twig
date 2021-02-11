@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4" >
+        <div class="row">
+            <div class="col-md-4">
+                <h1>Formulaire du plaçage du produit :</h1>
+                <p>Ici vous pouvez tester l'application sellermania</p>
+            </div>
+            <div class="col-md-6">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="text-primary" style="font-weight: bold;font-size: 2rem;">
+                            12344 €
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <table class="table table-striped" >
+                <thead>
+                    <tr>
+                        <th>Prix</th>
+                        <th>Vendeur</th>
+                        <th>Etat du produit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for registre in registres %}
+                        <tr>
+                            <td>{{ registre.getFormatPrice }} €</td>
+                            <td>{{ registre.vendeur  }}</td>
+                            <td>{{ registre.getFormatEtat  }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

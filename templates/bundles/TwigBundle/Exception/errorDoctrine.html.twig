@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Problème avec la base données Doctrine {% endblock %}
+
+{% block body %}
+    <p>Vous essayez de consulter des données La page que vous cherchez n'a pas été trouvée</p>
+    <p>Le code est : {{status_code}}</p>
+    <p>Le texte est : {{status_text}}</p>
+{% endblock %}
+
