@@ -6,19 +6,19 @@ home:
   controller: App\Controller\HomeController::index
 
 vendeur:
-  path: /vendeur
+  path: /admin/vendeur
   controller: App\Controller\VendeurController::vendeur
 
 apercuconcurrence:
-  path: /apercuconcurrence
+  path: /admin/apercuconcurrence
   controller: App\Controller\ConcurrenceController::apercuconcurrence
 
 etat:
-  path: /etat
+  path: /admin/etat
   controller: App\Controller\EtatController::etat
 
 produit:
-  path: /produit
+  path: /admin/produit
   controller: App\Controller\ProduitController::produit
 algorithmecalcul:
   path: /algorithmecalcul

@@ -89,7 +89,7 @@ class ConcurrenceController extends AbstractController
 
     /**
      *
-     * @Route("/concurrence/edit/{id}",name="concurrence.edit", methods={"GET|POST"})
+     * @Route("/admin/concurrence/edit/{id}",name="concurrence.edit", methods={"GET|POST"})
      * @param Concurrence $article
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -113,7 +113,7 @@ class ConcurrenceController extends AbstractController
 
     /**
      *
-     * @Route("/concurrence/{id}",name="concurrence.delete", methods={"DELETE"})
+     * @Route("/admin/concurrence/{id}",name="concurrence.delete", methods={"DELETE"})
      * @param Concurrence $article
      * @return \Symfony\Component\HttpFoundation\Response
      */

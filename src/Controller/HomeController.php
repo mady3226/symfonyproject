@@ -19,11 +19,9 @@ class HomeController extends AbstractController
 
     public function index(): Response
     {
-
-
-        return $this->render('Algorithme/algorithmecalcul.html.twig',[
-            'current_onglet'  =>  'algorithmecalcul',
-        ]);
+        //return $this->render('Algorithme/algorithmecalcul.html.twig');
+        //return new Response('Hellowork !');
+        return $this->redirectToRoute('algorithmecalcul');
     }
 
 }

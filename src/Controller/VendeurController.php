@@ -68,7 +68,7 @@ class VendeurController extends AbstractController
 
     /**
      *
-     * @Route("/vendeur/edit/{id}",name="vendeur.edit", methods={"GET|POST"})
+     * @Route("/admin/vendeur/edit/{id}",name="vendeur.edit", methods={"GET|POST"})
      * @param Vendeur $vendeur
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -93,7 +93,7 @@ class VendeurController extends AbstractController
 
     /**
      *
-     * @Route("/vendeur/{id}",name="vendeur.delete", methods={"DELETE"})
+     * @Route("/admin/vendeur/{id}",name="vendeur.delete", methods={"DELETE"})
      * @param Vendeur $vendeur
      * @return \Symfony\Component\HttpFoundation\Response
      */
