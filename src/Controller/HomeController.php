@@ -22,6 +22,7 @@ class HomeController extends AbstractController
         //return $this->render('Algorithme/algorithmecalcul.html.twig');
         //return new Response('Hellowork !');
         return $this->redirectToRoute('algorithmecalcul');
+
     }
 
 }
